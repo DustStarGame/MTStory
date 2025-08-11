@@ -4,14 +4,14 @@
         <ui:VisualElement name="ItemList" style="flex-grow: 0; width: 30%; flex-shrink: 1; height: 100%; align-items: flex-start; justify-content: flex-start; align-self: auto;">
             <ui:VisualElement name="Header" style="flex-grow: 0; align-items: auto; justify-content: space-between; flex-direction: row; height: auto; width: 100%;">
                 <ui:Label tabindex="-1" text="ItemList" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 20px; -unity-font-style: bold; color: rgb(255, 255, 255); white-space: nowrap; -unity-text-align: middle-left; align-items: auto;" />
-                <ui:Button text="+" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
+                <ui:Button text="+" display-tooltip-when-elided="true" name="AddButton" style="-unity-font-style: bold;" />
             </ui:VisualElement>
             <ui:ListView name="ListView" reorderable="true" show-border="true" horizontal-scrolling="false" style="width: 100%; flex-grow: 1; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; height: 100%;" />
         </ui:VisualElement>
         <ui:ScrollView name="ItemDetails" style="flex-grow: 1; width: 70%;">
             <ui:VisualElement name="Header" style="flex-grow: 0; align-items: auto; justify-content: space-between; flex-direction: row; height: auto; width: 100%;">
                 <ui:Label tabindex="-1" text="Details Information" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 20px; -unity-font-style: bold; color: rgb(255, 255, 255); white-space: nowrap; -unity-text-align: middle-left; align-items: auto;" />
-                <ui:Button text="Delete" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
+                <ui:Button text="Delete" display-tooltip-when-elided="true" name="DeleteButton" style="-unity-font-style: bold;" />
             </ui:VisualElement>
             <ui:VisualElement name="Content" style="flex-grow: 1;">
                 <ui:VisualElement name="Row1" style="flex-grow: 1; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(0, 0, 0);">

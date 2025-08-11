@@ -58,11 +58,34 @@ public class ItemEditor : EditorWindow
         itemDetailsSection = root.Q<ScrollView>("ItemDetails");
         iconPreview = itemDetailsSection.Q<VisualElement>("Icon");
 
+        //获得按键
+        root.Q<Button>("AddButton").clicked += OnAddItemClicked;
+        root.Q<Button>("DeleteButton").clicked += OnDeleteClicked;
+
         //加载数据
         LoadDataBase();
 
         GenerateListView();
     }
+
+    #region 按键事件
+    private void OnDeleteClicked()
+    {
+        itemList.Remove(activeItem);
+        itemListView.Rebuild();
+        itemDetailsSection.visible = false;
+    }
+
+    private void OnAddItemClicked()
+    {
+        ItemDetails newItem = new ItemDetails();
+        newItem.itemName = "New Item";
+        newItem.itemID = 1001 + itemList.Count;
+
+        itemList.Add(newItem);
+        itemListView.Rebuild();
+    }
+    #endregion
 
     private void LoadDataBase()
     {
