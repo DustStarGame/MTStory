@@ -40,7 +40,10 @@ namespace Farm.Inventory
 
             if (itemDetails != null)
             {
-                spriteRenderer.sprite = itemDetails.itemOnworldSprite ?? itemDetails.itemIcon;
+                // Unity重写了UnityEngine.Object（如Sprite）的==运算符。
+                // 被销毁的对象在C#中不是真正的null，但Unity引擎会将其视为null。
+                // 然而??运算符使用的是C#底层的null检查，无法识别Unity的"伪null"状态。
+                spriteRenderer.sprite = itemDetails.itemOnworldSprite? itemDetails.itemOnworldSprite : itemDetails.itemIcon;
 
                 // 修改碰撞体尺寸
                 Vector2 newSize = new Vector2(spriteRenderer.bounds.size.x, spriteRenderer.bounds.size.y);
