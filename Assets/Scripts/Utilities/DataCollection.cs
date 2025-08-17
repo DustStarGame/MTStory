@@ -17,3 +17,10 @@ public class ItemDetails
     [Range(0,1)]
     public float sellPercentage;        // 卖出时的折扣百分比
 }
+
+[System.Serializable]
+public struct InventoryItem
+{
+    public int itemID;
+    public int itemAmount;
+}

@@ -6,7 +6,7 @@ namespace Farm.Inventory
 {
     public class Item : MonoBehaviour
     {
-        public int itmeID;
+        public int itemID;
 
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D coll;
@@ -21,9 +21,9 @@ namespace Farm.Inventory
 
         private void Start()
         {
-            if (itmeID != 0)
+            if (itemID != 0)
             {
-                Init(itmeID);
+                Init(itemID);
             }
             else
             {
@@ -34,9 +34,9 @@ namespace Farm.Inventory
 
         public void Init(int ID)
         {
-            itmeID = ID;
+            itemID = ID;
 
-            itemDetails = InventoryManager.Instance.GetItemDetails(itmeID);
+            itemDetails = InventoryManager.Instance.GetItemDetails(itemID);
 
             if (itemDetails != null)
             {
