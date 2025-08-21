@@ -13,6 +13,9 @@ namespace Farm.Inventory
         [Header("背包数据")]
         public InventoryBag_SO playerBag;
 
+        private void Start() {
+            EventHandler.CallUpdateInventoryUI(InventoryLocationType.Player, playerBag.itemList);
+        }
 
         /// <summary>
         /// 通过ID获取物品信息
@@ -45,8 +48,8 @@ namespace Farm.Inventory
                 Destroy(item.gameObject);
             }
 
-
-
+            // 更新UI
+            EventHandler.CallUpdateInventoryUI(InventoryLocationType.Player, playerBag.itemList);
         }
 
 
