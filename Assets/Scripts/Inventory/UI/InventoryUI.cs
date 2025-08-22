@@ -21,8 +21,9 @@ namespace Farm.Inventory
             bagOpened = bagUI.activeInHierarchy;
         }
 
-        private void Update() {
-            if(Input.GetKeyDown(KeyCode.B))
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 OpenBagUI();
             }
@@ -68,11 +69,33 @@ namespace Farm.Inventory
         }
 
 
+        /// <summary>
+        /// 打开关闭背包UI，Button调用事件
+        /// </summary>
         public void OpenBagUI()
         {
             bagOpened = !bagOpened;
             bagUI.SetActive(bagOpened);
         }
-            
+
+        /// <summary>
+        /// 更新高亮显示
+        /// </summary>
+        /// <param name="index">序号</param>
+        public void UpdateSlotHightlight(int index)
+        {
+            foreach (var slot in playerSlots)
+            {
+                if (slot.isSelected && slot.slotIndex == index)
+                {
+                    slot.slotHightlight.gameObject.SetActive(true);
+                }
+                else
+                {
+                    slot.isSelected = false;
+                    slot.slotHightlight.gameObject.SetActive(false);
+                }
+            }
+        } 
     }
 }

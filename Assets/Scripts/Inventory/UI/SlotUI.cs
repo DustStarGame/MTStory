@@ -1,26 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 namespace Farm.Inventory
 {
-    public class SlotUI : MonoBehaviour
+    public class SlotUI : MonoBehaviour,IPointerClickHandler
     {
         [Header("组件获取")]
         [SerializeField] private Image slotImage;
         [SerializeField] private TextMeshProUGUI amountText;
-        [SerializeField] private Image slotHightlight;
+        public Image slotHightlight;
         [SerializeField] private Button button;
 
         [Header("格子类型")]
         public SlotType slotType;
-
         public bool isSelected;
+        public int slotIndex;           //当前格子索引
 
         public ItemDetails itemDetails;
 
         public int itemAmount;          //背包当中当前栏位的物品数量
-        public int slotIndex;           //当前格子索引
+
+        public InventoryUI inventoryUI => GetComponentInParent<InventoryUI>();
 
         private void Start()
         {
@@ -60,6 +62,14 @@ namespace Farm.Inventory
             slotImage.enabled = false;
             amountText.text = string.Empty;
             button.interactable = false;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (itemAmount == 0) return;
+
+            isSelected = !isSelected;
+            inventoryUI.UpdateSlotHightlight(slotIndex);
         }
     }
 }
