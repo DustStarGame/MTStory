@@ -62,6 +62,9 @@ namespace Farm.Inventory
             slotImage.enabled = false;
             amountText.text = string.Empty;
             button.interactable = false;
+
+            // 将物品数量置空 解决物品拖拽置空后，能可以拖转出物品的bug
+            itemAmount = 0;
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -74,7 +77,7 @@ namespace Farm.Inventory
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (itemAmount != 0)
+            if (itemAmount > 0)         //解决物品拖拽置空后，能可以拖转出物品的bug
             {
                 inventoryUI.dragItem.enabled = true;
                 inventoryUI.dragItem.sprite = slotImage.sprite;
@@ -82,6 +85,7 @@ namespace Farm.Inventory
 
                 isSelected = true;
                 inventoryUI.UpdateSlotHightlight(slotIndex);
+
             }
         }
 
@@ -93,8 +97,36 @@ namespace Farm.Inventory
         public void OnEndDrag(PointerEventData eventData)
         {
             inventoryUI.dragItem.enabled = false;
+            // Debug.Log(eventData.pointerCurrentRaycast.gameObject);
 
-            Debug.Log(eventData.pointerCurrentRaycast.gameObject);
+            if (eventData.pointerCurrentRaycast.gameObject != null)
+            {
+                if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<SlotUI>(out SlotUI targetSlot))
+                {
+                    int targetIndex = targetSlot.slotIndex;
+
+                    if (slotType == SlotType.Bag && targetSlot.slotType == SlotType.Bag)
+                    {
+                        InventoryManager.Instance.SwapItem(slotIndex, targetIndex);
+                    }
+                }
+
+                inventoryUI.UpdateSlotHightlight(-1);
+            }
+            else    //测试扔到地上
+            {
+                if (itemDetails.canDropped)
+                {
+                    //因为摄像机默认z轴是-10，所以这里取负值
+                    //数据对应世界地图坐标
+                    var pos = Camera.main.ScreenToWorldPoint
+                        (new Vector3(Input.mousePosition.x,
+                        Input.mousePosition.y,
+                        -Camera.main.transform.position.z));
+
+                    EventHandler.CallInstantiateItemInScene(itemDetails.itemID, pos);
+                }
+            }
         }
 
     }

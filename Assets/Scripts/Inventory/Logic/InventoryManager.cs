@@ -13,7 +13,8 @@ namespace Farm.Inventory
         [Header("背包数据")]
         public InventoryBag_SO playerBag;
 
-        private void Start() {
+        private void Start()
+        {
             EventHandler.CallUpdateInventoryUI(InventoryLocationType.Player, playerBag.itemList);
         }
 
@@ -124,6 +125,30 @@ namespace Farm.Inventory
 
                 playerBag.itemList[index] = item;
             }
+        }
+
+        /// <summary>
+        /// Player背包内交换物品
+        /// </summary>
+        /// <param name="fromIndex">起始序号</param>
+        /// <param name="targetSlot">目标数据序号</param>
+        public void SwapItem(int fromIndex, int targetSlot)
+        {
+            InventoryItem currentItem = playerBag.itemList[fromIndex];
+            InventoryItem targetItem = playerBag.itemList[targetSlot];
+
+            if (targetItem.itemID != 0)
+            {
+                playerBag.itemList[fromIndex] = targetItem;
+                playerBag.itemList[targetSlot] = currentItem;
+            }
+            else
+            {
+                playerBag.itemList[targetSlot] = currentItem;
+                playerBag.itemList[fromIndex] = new InventoryItem{ itemID = 0, itemAmount = 0};
+            }
+
+            EventHandler.CallUpdateInventoryUI(InventoryLocationType.Player, playerBag.itemList);
         }
 
     }
