@@ -113,20 +113,20 @@ namespace Farm.Inventory
 
                 inventoryUI.UpdateSlotHightlight(-1);
             }
-            else    //测试扔到地上
-            {
-                if (itemDetails.canDropped)
-                {
-                    //因为摄像机默认z轴是-10，所以这里取负值
-                    //数据对应世界地图坐标
-                    var pos = Camera.main.ScreenToWorldPoint
-                        (new Vector3(Input.mousePosition.x,
-                        Input.mousePosition.y,
-                        -Camera.main.transform.position.z));
+            // else    //测试扔到地上
+            // {
+            //     if (itemDetails.canDropped)
+            //     {
+            //         //因为摄像机默认z轴是-10，所以这里取负值
+            //         //数据对应世界地图坐标
+            //         var pos = Camera.main.ScreenToWorldPoint
+            //             (new Vector3(Input.mousePosition.x,
+            //             Input.mousePosition.y,
+            //             -Camera.main.transform.position.z));
 
-                    EventHandler.CallInstantiateItemInScene(itemDetails.itemID, pos);
-                }
-            }
+            //         EventHandler.CallInstantiateItemInScene(itemDetails.itemID, pos);
+            //     }
+            // }
         }
 
     }
