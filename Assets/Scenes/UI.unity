@@ -1705,6 +1705,7 @@ GameObject:
   - component: {fileID: 590761549}
   - component: {fileID: 590761551}
   - component: {fileID: 590761550}
+  - component: {fileID: 590761552}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -1829,6 +1830,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590761548}
   m_CullTransparentMesh: 1
+--- !u!114 &590761552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590761548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: 25
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &693981539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3373,6 +3394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e710cd126ff2449a860fbfabc6b9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemTooltip: {fileID: 1450177853}
   dragItem: {fileID: 482063678}
   bagUI: {fileID: 835483052}
   playerSlots:
@@ -3528,6 +3550,7 @@ GameObject:
   - component: {fileID: 1450177849}
   - component: {fileID: 1450177852}
   - component: {fileID: 1450177851}
+  - component: {fileID: 1450177853}
   m_Layer: 5
   m_Name: ItemTooltip
   m_TagString: Untagged
@@ -3636,6 +3659,23 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1450177853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450177847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0475ac4f12d1a43a7d9170ecb67d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 2051953844}
+  typeText: {fileID: 190748467}
+  descriptionText: {fileID: 590761550}
+  valueText: {fileID: 1241687617}
+  bottomPart: {fileID: 723506512}
 --- !u!1001 &1509442231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4409,7 +4449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: -23.005001}
+  m_AnchoredPosition: {x: 35, y: -32.5}
   m_SizeDelta: {x: 64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1667006906
