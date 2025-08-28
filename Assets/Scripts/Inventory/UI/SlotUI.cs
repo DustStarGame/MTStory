@@ -73,6 +73,12 @@ namespace Farm.Inventory
 
             isSelected = !isSelected;
             inventoryUI.UpdateSlotHightlight(slotIndex);
+
+            if (slotType == SlotType.Bag)
+            {
+                //通知物体被选中的状态和信息
+                EventHandler.CallItemSelectedEvent(itemDetails, isSelected);
+            }
         }
 
         public void OnBeginDrag(PointerEventData eventData)
