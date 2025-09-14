@@ -7,7 +7,7 @@ namespace Farm.Transition
 {
     public class TransitionManager : MonoBehaviour
     {
-        public string startSceneName;
+        [SceneName] public string startSceneName;
 
         private void OnEnable() {
             EventHandler.TransitionEvent += OnTransitionEvent;
@@ -35,8 +35,16 @@ namespace Farm.Transition
         /// <returns></returns>
         private IEnumerator Transition(string sceneName, Vector3 targetPos)
         {
+            EventHandler.CallBeforeSceneUnloadEvent();
+
             yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+
             yield return LoadSceneSetActive(sceneName);
+
+            //移动人物坐标
+            EventHandler.CallMoveToPosition(targetPos);
+
+            EventHandler.CallAfterSceneLoadedEvent();
         }
 
         /// <summary>
@@ -48,8 +56,7 @@ namespace Farm.Transition
         {
             yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
-            Scene newScene = SceneManager.GetSceneByName(sceneName);
-                        
+            Scene newScene = SceneManager.GetSceneByName(sceneName);     
             SceneManager.SetActiveScene(newScene);
         }
     }

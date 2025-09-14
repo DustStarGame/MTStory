@@ -2,14 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwitchBounds : MonoBehaviour
 {
-    //TODO: 切换场景后更换调用
-    private void Start()
+    private void OnEnable()
     {
-        SwitchConfinerShape();
+        EventHandler.AfterSceneLoadedEvent += SwitchConfinerShape;
+    }
+
+    private void OnDisable() {
+        EventHandler.AfterSceneLoadedEvent -= SwitchConfinerShape;
     }
 
     private void SwitchConfinerShape()

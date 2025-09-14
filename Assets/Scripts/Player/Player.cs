@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
 
     private Animator[] animators;
     private bool isMoving;
+    private bool inputDisable;
 
     private void Awake()
     {
@@ -22,9 +24,38 @@ public class Player : MonoBehaviour
         animators = GetComponentsInChildren<Animator>();
     }
 
+    private void OnEnable()
+    {
+        EventHandler.BeforeSceneUnloadEvent += OnBeforeSceneUnloadEvent;
+        EventHandler.AfterSceneLoadedEvent += OnAfterSceneLoadedEvent;
+        EventHandler.MoveToPosition += OnMoveToPosition;
+    }
+
+    private void OnDisable() {
+        EventHandler.BeforeSceneUnloadEvent -= OnBeforeSceneUnloadEvent;
+        EventHandler.AfterSceneLoadedEvent -= OnAfterSceneLoadedEvent;
+        EventHandler.MoveToPosition -= OnMoveToPosition;
+    }
+
+    private void OnMoveToPosition(Vector3 targetPos)
+    {
+        transform.position = targetPos;
+    }
+
+    private void OnAfterSceneLoadedEvent()
+    {
+        inputDisable = false;
+    }
+
+    private void OnBeforeSceneUnloadEvent()
+    {
+        inputDisable = true;
+    }
+
     private void Update()
     {
-        PlayerInput();
+        if (inputDisable == false)
+            PlayerInput();
         SwitchAnimation();
     }
 
