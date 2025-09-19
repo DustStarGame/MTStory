@@ -1961,35 +1961,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918169, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: 8.455807
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918169, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 3.3864877
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918169, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -22.525833
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918169, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: 3.4537888
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918169, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -22.532644
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918169, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -14.483897
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918169, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: 8.537722
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918169, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -14.492779
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 9177635811407918174, guid: 0341966a68ba24d40be363ecac7f354a, type: 3}
       propertyPath: m_Name

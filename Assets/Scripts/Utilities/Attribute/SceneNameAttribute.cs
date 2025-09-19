@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,8 +16,8 @@ public class SceneNameAttribute : PropertyAttribute
             if (val.enabled)
             {
                 string text = val.path.Substring(val.path.LastIndexOf('/') + 1);
-                text = text.Substring(0, text.Length - 6);
-                if(char.IsDigit(text[0]))
+                text = System.IO.Path.GetFileNameWithoutExtension(val.path);
+                if(Regex.IsMatch(text, @"^\d{2}\."))
                     list.Add(text);
             }
         }
