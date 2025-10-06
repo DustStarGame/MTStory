@@ -50,9 +50,10 @@ namespace Farm.Transition
 
             //移动人物坐标
             EventHandler.CallMoveToPosition(targetPos);
-            yield return Fade(0);
 
             EventHandler.CallAfterSceneLoadedEvent();
+            
+            yield return Fade(0);
         }
 
         /// <summary>
