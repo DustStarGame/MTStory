@@ -11682,6 +11682,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 10120940201497953, guid: cb71b65ae9f0c0f4bbfe83a25b8ee048, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 10120941644848730, guid: cb71b65ae9f0c0f4bbfe83a25b8ee048, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -186559,7 +186563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10120940201497953, guid: cb71b65ae9f0c0f4bbfe83a25b8ee048, type: 3}
       propertyPath: m_TagString
-      value: Item
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 10120941644848730, guid: cb71b65ae9f0c0f4bbfe83a25b8ee048, type: 3}
       propertyPath: m_Sprite

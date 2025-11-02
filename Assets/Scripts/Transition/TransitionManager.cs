@@ -91,8 +91,7 @@ namespace Farm.Transition
 
             fadeCanvasGroup.blocksRaycasts = false;
             isFade = false;
-        }
-        
-
+      
+          }
     }
 }
