@@ -63,3 +63,11 @@ public class SceneItem
     public int itemID;
     public SerializableVector3 position;
 }
+
+[Serializable]
+public class TileProperty
+{
+    public Vector2Int tileCoordinate;
+    public GridType gridType;
+    public bool boolTypeValue;
+}
